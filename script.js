@@ -61,6 +61,8 @@ var quiz = [Q1, Q2, Q3, Q4];
 
 question(0);
 
+//need to put the question number in local storage
+
 //rotate through array of question objects
 function question(i) {
   var question = document.createElement("H1");
@@ -78,6 +80,7 @@ function question(i) {
     div.appendChild(answer);
 
     answer.addEventListener("click", function () {
+      question = "";
       nextQuestion(i);
 
       //call next question function that takes in a parameter
@@ -113,7 +116,7 @@ function question(i) {
 
 //function for each question and answers "page" ^^^^^^^ seperation of concern
 //click event for button to switch to next question
-var questionNum;
+
 function nextQuestion(x) {
   x++;
   question(x);
