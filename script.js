@@ -59,24 +59,62 @@ var Q4 = {
 
 var quiz = [Q1, Q2, Q3, Q4];
 
+question(0);
+
 //rotate through array of question objects
-var ugh = 0;
-for (var i = 0; i < quiz.length; i++) {
-  console.log(quiz[i].answers[ugh]);
-  ugh++;
-  //display question
+function question(i) {
   var question = document.createElement("H1");
+  question.setAttribute("style", "color:blue;");
   question.textContent = quiz[i].question;
 
   var div = document.createElement("div");
   div.appendChild(question);
   document.body.appendChild(div);
 
-  var ugh = 0;
   for (var x = 0; x < 4; x++) {
     var answer = document.createElement("button");
     answer.setAttribute("class", "btn btn-primary");
     answer.textContent = quiz[i].answers[x];
     div.appendChild(answer);
+
+    answer.addEventListener("click", function () {
+      nextQuestion(i);
+
+      //call next question function that takes in a parameter
+      //need to know what question youre on and tell the method to go to the next question
+    });
   }
+}
+
+// for (var i = 0; i < quiz.length; i++) {
+//   //display question
+//   var question = document.createElement("H1");
+//   question.setAttribute("style", "color:blue;");
+//   question.textContent = quiz[i].question;
+
+//   var div = document.createElement("div");
+//   div.appendChild(question);
+//   document.body.appendChild(div);
+
+//   for (var x = 0; x < 4; x++) {
+//     var answer = document.createElement("button");
+//     answer.setAttribute("class", "btn btn-primary");
+//     answer.textContent = quiz[i].answers[x];
+//     div.appendChild(answer);
+
+//     answer.addEventListener("click", function () {
+//       console.log("clicked!");
+
+//       //call next question function that takes in a parameter
+//       //need to know what question youre on and tell the method to go to the next question
+//     });
+//   }
+// }
+
+//function for each question and answers "page" ^^^^^^^ seperation of concern
+//click event for button to switch to next question
+var questionNum;
+function nextQuestion(x) {
+  x++;
+  question(x);
 }
