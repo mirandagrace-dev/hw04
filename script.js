@@ -32,27 +32,38 @@
 var quiz = [];
 var Q1 = {
   question: "what does html stand for?",
-  answers: ["Friends", "lalala", "Obviouly Friends", "totally friends"],
+  answers: [
+    "Hypertext Markup Languag",
+    "Honor Typescript Many Lives",
+    "Home Town Mayor Language",
+    "none of the above",
+  ],
 };
 var Q2 = {
   question: "what does CSS stand for?",
-  answers: ["Friends", "Def Friends", "Obviouly Friends", "totally friends"],
+  answers: [
+    "Cats Sleep Soundly",
+    "Cascading Site Styles",
+    "Cascading Style Sheet",
+    "None of the above.",
+  ],
 };
 var Q3 = {
   question: "What html library allows us to use a grid system?",
-  answers: ["Friends", "Def Friends", "Obviouly Friends", "totally friends"],
+  answers: ["Gridz.io", "Bootsnap", "JQuery", "None of the above"],
 };
 var Q4 = {
   question: "What is 'Language of the Web'",
-  answers: ["Friends", "Def Friends", "Obviouly Friends", "totally friends"],
+  answers: ["HTML", "Javascript", "CSS", "All of the above"],
 };
 
 var quiz = [Q1, Q2, Q3, Q4];
 
 //rotate through array of question objects
-
+var ugh = 0;
 for (var i = 0; i < quiz.length; i++) {
-  console.log(i);
+  console.log(quiz[i].answers[ugh]);
+  ugh++;
   //display question
   var question = document.createElement("H1");
   question.textContent = quiz[i].question;
@@ -61,21 +72,11 @@ for (var i = 0; i < quiz.length; i++) {
   div.appendChild(question);
   document.body.appendChild(div);
 
-  //display answers DONE
-  var i = 0;
-  for (var x = 0; x < quiz[i].answers.length; x++) {
+  var ugh = 0;
+  for (var x = 0; x < 4; x++) {
     var answer = document.createElement("button");
     answer.setAttribute("class", "btn btn-primary");
-    answer.textContent = quiz[x].answers[i];
+    answer.textContent = quiz[i].answers[x];
     div.appendChild(answer);
-    i++;
   }
-
-  answer.addEventListener("click", function () {
-    //displayQ();
-  });
-  //add click event for when button is clicked to go to next question and display
-  //if your answer was wrong or right
 }
-
-//function displayQ() {};
